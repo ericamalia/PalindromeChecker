@@ -16,10 +16,12 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  String backwards = reverse(word);
+ 
   String w = noSpaces(word);
   w = noCapitals(w);
-  if (word.equals(backwards) && word.equals(w)){
+  w = onlyLetters(w);
+
+  if (w.equals(reverse(w))){
     return true;
   }
   else{
@@ -57,4 +59,16 @@ public String noSpaces(String sWord){
 public String noCapitals(String sWord){
   String bob = sWord.toLowerCase();
   return bob;
+}
+
+public String onlyLetters(String sString){
+  String emptyThree = new String();
+ 
+  for (int i=0; i< sString.length(); i++){
+   
+    if (Character.isLetter(sString.charAt(i)) == true){
+      emptyThree = emptyThree +sString.charAt(i);
+    }
+  }
+  return emptyThree;
 }
